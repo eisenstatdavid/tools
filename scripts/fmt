@@ -1,0 +1,8 @@
+#!/bin/bash
+go fmt ./...
+find . -name '*.go' -exec diff -u /dev/null {} \; | fill-changed-comments
+go fmt ./...
+go mod tidy
+scripts/pretty-mk Makefile
+set-shebang /bin/bash -- scripts/*
+scripts/pretty-sh scripts/*

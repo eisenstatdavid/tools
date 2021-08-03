@@ -1,0 +1,8 @@
+#!/bin/bash
+set -e
+go install ./...
+local_bin="${HOME}/local/bin"
+mkdir -p "${local_bin}"
+cp -f scripts/pretty-md scripts/pretty-mk scripts/pretty-sh scripts/spell "${local_bin}"
+cp -n scripts/profile "${HOME}/.bash_profile" || true
+cp -n scripts/profile "${HOME}/.zprofile" || true
