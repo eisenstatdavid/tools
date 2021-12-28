@@ -1,3 +1,4 @@
 #!/bin/bash
 export EDITOR="$(command -v vim)"
 export PATH="${HOME}/local/bin:$(go env GOPATH)/bin:${PATH}"
+[ -n "${ZSH_VERSION}" ] && bindkey -e
