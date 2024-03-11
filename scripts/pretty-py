@@ -1,0 +1,4 @@
+#!/bin/bash
+black "$@"
+for f in "$@"; do diff -u /dev/null "${f}"; done | fill-changed-comments
+black "$@"

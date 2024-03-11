@@ -1,0 +1,5 @@
+#!/bin/bash
+for f in "$@"; do diff -u /dev/null "${f}"; done | squash-strings
+clang-format -i "$@"
+for f in "$@"; do diff -u /dev/null "${f}"; done | fill-changed-comments
+clang-format -i "$@"

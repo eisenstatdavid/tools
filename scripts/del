@@ -1,0 +1,4 @@
+#!/bin/bash
+dir="$(mktemp -d "${HOME}/.Trash/del.XXXXXXXX")"
+mkdir -p "${dir}"
+mv "$@" "${dir}"

@@ -1,0 +1,7 @@
+#!/bin/bash
+f="$(mktemp)"
+vim "$f"
+echo "$f"
+spell-check <"$f"
+normalize-numbers <"$f" | pandoc -f markdown -t commonmark --wrap=none | pbcopy
+pbpaste

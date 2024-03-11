@@ -1,0 +1,8 @@
+#!/bin/bash
+brew="/opt/homebrew/bin/brew"
+[ -f "${brew}" ] && . <("${brew}" shellenv)
+EDITOR="$(command -v vim)"
+export EDITOR
+PATH="${HOME}/local/bin:$(go env GOPATH)/bin:${PATH}"
+export PATH
+[ -n "${ZSH_VERSION}" ] && bindkey -e

@@ -1,0 +1,2 @@
+#!/bin/bash
+rewrite-in-place pandoc -f markdown -t markdown -s --wrap=none -- "$@"
