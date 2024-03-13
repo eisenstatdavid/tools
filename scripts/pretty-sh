@@ -1,4 +1,2 @@
 #!/bin/bash
-rewrite-in-place sed -e $'s/^[[:space:]]*//
-s/[[:space:]]*$//
-s/[[:space:]]\\{1,\\}/ /g' -- "$@"
+rewrite-in-place format-shell -- "$@"
