@@ -1,4 +1,5 @@
 #!/bin/bash
+set -euo pipefail
 black "$@"
-for f in "$@"; do diff -u /dev/null "${f}"; done | fill-changed-comments
+for f in "$@"; do diff -u /dev/null "${f}" || test "$?" -eq 1; done | fill-changed-comments
 black "$@"

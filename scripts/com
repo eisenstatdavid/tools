@@ -1,4 +1,5 @@
 #!/bin/bash
+set -euo pipefail
 f="$(mktemp)"
 vim "$f"
 echo "$f"

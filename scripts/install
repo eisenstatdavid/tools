@@ -1,10 +1,10 @@
 #!/bin/bash
-set -e
+set -euo pipefail
 git config --global user.name "David Eisenstat"
 git config --global user.email "eisenstatdavid@gmail.com"
 go install ./...
 local_bin="${HOME}/local/bin"
 mkdir -p "${local_bin}"
 cp -f scripts/com scripts/del scripts/pretty-* scripts/spell "${local_bin}"
-cp -n scripts/profile "${HOME}/.bash_profile" || true
-cp -n scripts/profile "${HOME}/.zprofile" || true
+cp -n scripts/profile "${HOME}/.bash_profile" || :
+cp -n scripts/profile "${HOME}/.zprofile" || :

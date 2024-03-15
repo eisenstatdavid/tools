@@ -4,7 +4,7 @@ rm -f go.mod go.sum
 go mod init github.com/eisenstatdavid/tools
 go mod tidy
 go fmt ./...
-find . -name '*.go' -exec diff -u /dev/null {} \; | fill-changed-comments
+for f in {cmd,internal}/*/*.go; do diff -u /dev/null "$f" || test "$?" -eq 1; done | fill-changed-comments
 go fmt ./...
 scripts/pretty-mk Makefile
 set-shebang /bin/bash -- scripts/*

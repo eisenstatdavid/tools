@@ -1,5 +1,6 @@
 #!/bin/bash
-for f in "$@"; do diff -u /dev/null "${f}"; done | squash-strings
+set -euo pipefail
+for f in "$@"; do diff -u /dev/null "${f}" || test "$?" -eq 1; done | squash-strings
 clang-format -i "$@"
-for f in "$@"; do diff -u /dev/null "${f}"; done | fill-changed-comments
+for f in "$@"; do diff -u /dev/null "${f}" || test "$?" -eq 1; done | fill-changed-comments
 clang-format -i "$@"

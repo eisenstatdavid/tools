@@ -1,2 +1,3 @@
 #!/bin/bash
+set -euo pipefail
 rewrite-in-place pandoc -f markdown -t markdown -s --wrap=none -- "$@"
