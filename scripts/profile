@@ -5,4 +5,7 @@ EDITOR="$(command -v vim)"
 export EDITOR
 PATH="${HOME}/local/bin:$(go env GOPATH)/bin:${PATH}"
 export PATH
-[ -n "${ZSH_VERSION}" ] && bindkey -e
+if [ -n "${ZSH_VERSION}" ]; then
+bindkey -e
+setopt localoptions localtraps
+fi
