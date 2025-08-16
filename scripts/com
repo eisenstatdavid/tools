@@ -4,5 +4,5 @@ f="$(mktemp)"
 vim "$f"
 echo "$f"
 spell-check <"$f"
-normalize-numbers <"$f" | pandoc -f markdown -t commonmark --wrap=none | pbcopy
+pandoc -f markdown -t markdown+hard_line_breaks-smart "$f" | pbcopy
 pbpaste
